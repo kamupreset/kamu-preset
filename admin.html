@@ -1,1 +1,117 @@
-<h1>Admin Page</h1>
+<!DOCTYPE html><html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KAMU ADMIN LOGIN</title><style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:#0b0b15;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+padding:20px;
+}
+
+.card{
+width:100%;
+max-width:400px;
+background:#1b1b2f;
+padding:30px;
+border-radius:25px;
+box-shadow:0 0 30px rgba(255,79,216,.2);
+}
+
+.logo{
+text-align:center;
+font-size:30px;
+font-weight:bold;
+margin-bottom:10px;
+background:linear-gradient(90deg,#ff4fd8,#b85cf6);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.sub{
+text-align:center;
+color:#ccc;
+margin-bottom:25px;
+}
+
+input{
+width:100%;
+padding:15px;
+margin-top:12px;
+border:none;
+border-radius:15px;
+background:#111827;
+color:white;
+font-size:16px;
+}
+
+button{
+width:100%;
+padding:15px;
+margin-top:15px;
+border:none;
+border-radius:15px;
+font-size:17px;
+font-weight:bold;
+background:linear-gradient(90deg,#ff4fd8,#b85cf6);
+color:white;
+}
+
+.note{
+margin-top:15px;
+text-align:center;
+color:#999;
+font-size:13px;
+}
+</style></head><body><div class="card"><div class="logo">
+👑 KAMU ADMIN
+</div><div class="sub">
+Authorized Access Only
+</div><input type="text" id="user"
+placeholder="Admin Username">
+
+<input type="password" id="pass"
+placeholder="Admin Password">
+
+<button onclick="login()">
+LOGIN
+</button><div class="note">
+Protected Admin Panel
+</div></div><script>
+
+function login(){
+
+let user =
+document.getElementById("user").value;
+
+let pass =
+document.getElementById("pass").value;
+
+if(
+user==="Indrajit" &&
+pass==="KAMU@2026"
+){
+
+window.location.href=
+"admin-dashboard.html";
+
+}else{
+
+alert("Invalid Login");
+
+}
+
+}
+
+</script></body>
+</html>
