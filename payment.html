@@ -1,119 +1,298 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Payment</title>
+<title>KAMU PRESET VIP PAYMENT</title>
 
 <style>
-body{
-background:#0f0f1a;
-font-family:Arial;
-color:white;
+
+*{
 margin:0;
-padding:20px;
-text-align:center;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
 }
 
-.box{
-background:#1b1b2f;
+body{
+background:#0b0b15;
+color:white;
 padding:20px;
-border-radius:20px;
-max-width:400px;
+}
+
+.container{
+max-width:500px;
 margin:auto;
 }
 
-.qr{
-width:250px;
-height:250px;
-background:#fff;
-margin:20px auto;
-border-radius:15px;
-display:flex;
-align-items:center;
-justify-content:center;
-color:black;
+.vip-badge{
+text-align:center;
+font-size:32px;
 font-weight:bold;
+margin-top:20px;
+background:linear-gradient(90deg,#ff4fd8,#b85cf6);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.subtitle{
+text-align:center;
+color:#bdbdbd;
+margin-top:10px;
+margin-bottom:25px;
+}
+
+.card{
+background:rgba(255,255,255,.05);
+backdrop-filter:blur(10px);
+border:1px solid rgba(255,255,255,.1);
+border-radius:25px;
+padding:25px;
+margin-bottom:20px;
+box-shadow:0 0 25px rgba(255,79,216,.15);
+}
+
+.section-title{
+font-size:22px;
+font-weight:bold;
+margin-bottom:15px;
+text-align:center;
+}
+
+.qr{
+text-align:center;
+}
+
+.qr img{
+width:280px;
+max-width:100%;
+border-radius:20px;
+box-shadow:0 0 30px rgba(255,79,216,.4);
+}
+
+.upi-box{
+background:#181826;
+padding:15px;
+border-radius:15px;
+text-align:center;
+margin-top:20px;
+border:1px solid #2d2d45;
+}
+
+.upi-title{
+color:#ffd700;
+font-size:14px;
+margin-bottom:8px;
+}
+
+.upi-id{
+font-size:18px;
+font-weight:bold;
+word-break:break-all;
+}
+
+.price{
+margin-top:15px;
+text-align:center;
+font-size:26px;
+font-weight:bold;
+color:#00ff99;
 }
 
 input{
 width:100%;
 padding:15px;
-border:none;
-border-radius:10px;
+margin-top:20px;
+background:#181826;
+border:1px solid #2d2d45;
+border-radius:15px;
+color:white;
+font-size:16px;
+outline:none;
+}
+
+.verify-btn{
+width:100%;
+padding:16px;
 margin-top:15px;
+border:none;
+border-radius:15px;
+font-size:18px;
+font-weight:bold;
+cursor:pointer;
+background:linear-gradient(90deg,#ff4fd8,#b85cf6);
+color:white;
+}
+
+.verify-btn:hover{
+opacity:.9;
+}
+
+.benefits{
+line-height:35px;
 font-size:16px;
 }
 
-button{
-width:100%;
-padding:15px;
-margin-top:15px;
-background:#ff4fd8;
-border:none;
-border-radius:10px;
-color:white;
-font-size:18px;
-font-weight:bold;
+.notice{
+text-align:center;
+line-height:30px;
+color:#d5d5d5;
 }
 
-.success{
-display:none;
-margin-top:20px;
-background:#00c853;
-padding:15px;
-border-radius:10px;
-}
-
-a{
-color:white;
+.support-btn{
+display:block;
+text-align:center;
 text-decoration:none;
+padding:16px;
+border-radius:15px;
+background:#25D366;
+color:white;
 font-weight:bold;
+margin-top:15px;
 }
+
+.footer{
+margin-top:25px;
+text-align:center;
+color:#888;
+font-size:14px;
+}
+
 </style>
 </head>
 
 <body>
 
-<div class="box">
+<div class="container">
 
-<h2>💳 Payment Verification</h2>
-
-<div class="qr">
-UPLOAD YOUR QR
+<div class="vip-badge">
+💎 KAMU PRESET VIP
 </div>
 
-<input type="text" id="utr" placeholder="Enter UTR Number">
+<div class="subtitle">
+Unlock Premium Presets Instantly
+</div>
 
-<button onclick="verifyPayment()">
-VERIFY PAYMENT
+<div class="card">
+
+<div class="section-title">
+📱 Scan & Pay
+</div>
+
+<div class="qr">
+<img src="Screenshot_20260623-162531.png">
+</div>
+
+<div class="upi-box">
+
+<div class="upi-title">
+UPI ID
+</div>
+
+<div class="upi-id">
+6294778013-2@ybl
+</div>
+
+</div>
+
+<div class="price">
+₹99
+</div>
+
+<input type="text" placeholder="Enter UTR / Transaction ID">
+
+<button class="verify-btn">
+🚀 VERIFY & UNLOCK PRESET
 </button>
 
-<div class="success" id="successBox">
-✅ Payment Verified
+</div>
+
+<div class="card">
+
+<div class="section-title">
+✨ Premium Benefits
+</div>
+
+<div class="benefits">
+
+✔ Original Alight Motion Project
+
+✔ Premium Effects Included
+
+✔ High Quality Preset
+
+✔ Lifetime Access
+
+✔ Instant Unlock
+
+✔ Future Updates Free
+
+✔ Easy To Use
+
+✔ Trending Preset Collection
+
+</div>
+
+</div>
+
+<div class="card">
+
+<div class="section-title">
+⚡ Verification Notice
+</div>
+
+<div class="notice">
+
+Payment Verification Time
+
+<b>1 - 10 Minutes</b>
 
 <br><br>
 
-<a href="https://drive.google.com/" target="_blank">
-📥 DOWNLOAD PRESET
+🔓 Preset Unlock After Verification
+
+<br><br>
+
+📩 Keep Your UTR Number Safe
+
+</div>
+
+</div>
+
+<div class="card">
+
+<div class="section-title">
+💬 Need Help?
+</div>
+
+<div class="notice">
+
+Contact KAMU PRESET Support
+
+<br><br>
+
+📞 WhatsApp: 6294778013
+
+</div>
+
+<a class="support-btn"
+href="https://wa.me/916294778013">
+CONTACT SUPPORT
 </a>
 
 </div>
 
+<div class="footer">
+
+👑 Trusted By KAMU PRESET Users
+
+<br><br>
+
+Safe Payment • Premium Quality • Instant Access
+
 </div>
 
-<script>
-function verifyPayment(){
-let utr=document.getElementById("utr").value;
-
-if(utr.length>=8){
-document.getElementById("successBox").style.display="block";
-}
-else{
-alert("Enter Valid UTR Number");
-}
-}
-</script>
+</div>
 
 </body>
 </html>
