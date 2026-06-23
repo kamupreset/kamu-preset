@@ -1,11 +1,8 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html><html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>KAMU PRESET Login</title>
-
-<style>
+<title>KAMU PRESET Login</title><style>
 
 *{
 margin:0;
@@ -39,7 +36,7 @@ opacity:.4;
 position:absolute;
 width:250px;
 height:250px;
-background:#8b5cf6;
+background:#b85cf6;
 filter:blur(120px);
 bottom:-50px;
 right:-50px;
@@ -48,23 +45,23 @@ opacity:.4;
 
 .card{
 width:100%;
-max-width:400px;
+max-width:420px;
 background:rgba(27,27,47,.95);
 padding:30px;
 border-radius:30px;
-box-shadow:0 0 30px rgba(255,79,216,.25);
+box-shadow:0 0 35px rgba(255,79,216,.25);
 position:relative;
 z-index:1;
 }
 
 .logo{
-font-size:60px;
+font-size:70px;
 text-align:center;
 margin-bottom:10px;
 }
 
 .title{
-font-size:34px;
+font-size:38px;
 font-weight:bold;
 text-align:center;
 background:linear-gradient(90deg,#ff4fd8,#b85cf6);
@@ -115,57 +112,96 @@ color:white;
 margin-top:25px;
 text-align:center;
 color:#bbb;
-font-size:14px;
 line-height:28px;
 }
 
-a{
-text-decoration:none;
-}
-
-</style>
-</head>
-
-<body>
-
-<div class="glow1"></div>
-<div class="glow2"></div>
-
-<div class="card">
-
-<div class="logo">👑</div>
-
-<div class="title">
+</style></head><body><div class="glow1"></div>
+<div class="glow2"></div><div class="card"><div class="logo">👑</div><div class="title">
 KAMU PRESET
-</div>
-
-<div class="subtitle">
+</div><div class="subtitle">
 Premium Preset Marketplace
-</div>
-
-<input type="text" class="input" placeholder="Username">
-
-<input type="password" class="input" placeholder="Password">
-
-<a href="home.html">
-<button class="btn login">
+</div><input type="text" id="username" class="input" placeholder="Username"><input type="password" id="password" class="input" placeholder="Password"><input type="text" id="whatsapp" class="input" placeholder="WhatsApp Number"><button class="btn login" onclick="loginUser()">
 🔐 LOGIN
-</button>
-</a>
-
-<a href="home.html">
-<button class="btn signup">
+</button><button class="btn signup" onclick="signupUser()">
 ✨ CREATE ACCOUNT
-</button>
-</a>
-
-<div class="info">
+</button><div class="info">
 💎 Premium Presets<br>
 🎬 Photo & Video Presets<br>
 🔒 Secure Login
-</div>
+</div></div><script>
 
-</div>
+const API_URL="https://script.google.com/macros/s/AKfycbxKziF3v-Ya3jgNnTkx1hpOMXTSBWFGFmSsVZJkp872D220EiGlgbh5xPORqb2gyEUBjQ/exec";
 
-</body>
+async function signupUser(){
+
+const username=document.getElementById("username").value;
+const password=document.getElementById("password").value;
+const whatsapp=document.getElementById("whatsapp").value;
+
+if(!username || !password || !whatsapp){
+alert("Fill all fields");
+return;
+}
+
+try{
+
+await fetch(API_URL,{
+method:"POST",
+body:JSON.stringify({
+action:"signup",
+username:username,
+password:password,
+whatsapp:whatsapp
+})
+});
+
+alert("Account Created Successfully");
+
+}catch(err){
+
+alert("API Error");
+
+}
+
+}
+
+async function loginUser(){
+
+const username=document.getElementById("username").value;
+const password=document.getElementById("password").value;
+
+try{
+
+const response=await fetch(API_URL,{
+method:"POST",
+body:JSON.stringify({
+action:"login",
+username:username,
+password:password
+})
+});
+
+const data=await response.json();
+
+if(data.success){
+
+localStorage.setItem("username",username);
+
+window.location.href="home.html";
+
+}else{
+
+alert("Wrong Username Or Password");
+
+}
+
+}catch(err){
+
+alert("Server Error");
+
+}
+
+}
+
+</script></body>
 </html>
