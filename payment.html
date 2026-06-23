@@ -6,7 +6,6 @@
 <title>KAMU PRESET VIP PAYMENT</title>
 
 <style>
-
 *{
 margin:0;
 padding:0;
@@ -124,21 +123,6 @@ background:linear-gradient(90deg,#ff4fd8,#b85cf6);
 color:white;
 }
 
-.verify-btn:hover{
-opacity:.9;
-}
-
-.benefits{
-line-height:35px;
-font-size:16px;
-}
-
-.notice{
-text-align:center;
-line-height:30px;
-color:#d5d5d5;
-}
-
 .support-btn{
 display:block;
 text-align:center;
@@ -157,7 +141,6 @@ text-align:center;
 color:#888;
 font-size:14px;
 }
-
 </style>
 </head>
 
@@ -184,115 +167,109 @@ Unlock Premium Presets Instantly
 </div>
 
 <div class="upi-box">
-
-<div class="upi-title">
-UPI ID
+<div class="upi-title">UPI ID</div>
+<div class="upi-id">6294778013-2@ybl</div>
 </div>
 
-<div class="upi-id">
-6294778013-2@ybl
-</div>
+<div class="price">₹99</div>
 
-</div>
+<input type="text" id="utr" placeholder="Enter UTR / Transaction ID">
 
-<div class="price">
-₹99
-</div>
-
-<input type="text" placeholder="Enter UTR / Transaction ID">
-
-<button class="verify-btn">
+<button class="verify-btn" onclick="submitPayment()">
 🚀 VERIFY & UNLOCK PRESET
 </button>
 
 </div>
 
 <div class="card">
-
 <div class="section-title">
 ✨ Premium Benefits
 </div>
 
-<div class="benefits">
-
-✔ Original Alight Motion Project
-
-✔ Premium Effects Included
-
-✔ High Quality Preset
-
-✔ Lifetime Access
-
-✔ Instant Unlock
-
-✔ Future Updates Free
-
-✔ Easy To Use
-
+<div style="line-height:35px;">
+✔ Original Alight Motion Project<br>
+✔ Premium Effects Included<br>
+✔ High Quality Preset<br>
+✔ Lifetime Access<br>
+✔ Instant Unlock<br>
+✔ Future Updates Free<br>
+✔ Easy To Use<br>
 ✔ Trending Preset Collection
-
 </div>
-
 </div>
 
 <div class="card">
-
 <div class="section-title">
 ⚡ Verification Notice
 </div>
 
-<div class="notice">
-
-Payment Verification Time
-
+<div style="text-align:center;line-height:30px;">
+Payment Verification Time<br>
 <b>1 - 10 Minutes</b>
-
 <br><br>
-
 🔓 Preset Unlock After Verification
-
 <br><br>
-
 📩 Keep Your UTR Number Safe
-
 </div>
-
 </div>
 
 <div class="card">
-
 <div class="section-title">
 💬 Need Help?
 </div>
 
-<div class="notice">
-
-Contact KAMU PRESET Support
-
-<br><br>
-
+<div style="text-align:center;">
 📞 WhatsApp: 6294778013
-
 </div>
 
-<a class="support-btn"
-href="https://wa.me/916294778013">
+<a class="support-btn" href="https://wa.me/916294778013">
 CONTACT SUPPORT
 </a>
 
 </div>
 
 <div class="footer">
-
 👑 Trusted By KAMU PRESET Users
-
 <br><br>
-
 Safe Payment • Premium Quality • Instant Access
-
 </div>
 
 </div>
+
+<script>
+function submitPayment(){
+
+let utr=document.getElementById("utr").value;
+
+if(!utr){
+alert("UTR Number Enter Koro");
+return;
+}
+
+fetch("https://script.google.com/macros/s/AKfycbxKziF3v-Ya3jgNnTkx1hpOMXTSBWFGFmSsVZJkp872D220EiGlgbh5xPORqb2gyEUBjQ/exec",{
+method:"POST",
+body:JSON.stringify({
+action:"payment",
+username:localStorage.getItem("username") || "guest",
+productid:"P001",
+amount:"99",
+utr:utr
+})
+})
+.then(response=>response.json())
+.then(data=>{
+if(data.success){
+alert("✅ Payment Submitted Successfully");
+document.getElementById("utr").value="";
+}else{
+alert("❌ Payment Failed");
+}
+})
+.catch(error=>{
+alert("⚠️ Server Error");
+});
+}
+</script>
 
 </body>
 </html>
