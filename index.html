@@ -60,7 +60,8 @@ font-weight:bold;
 </style></head><body><header>KAMU PRESET</header><div class="card">
 <h2>Create Account</h2><input id="username" placeholder="Username">
 <input id="whatsapp" placeholder="WhatsApp Number">
-<input id="password" type="password" placeholder="Password"><button>Create Account</button>
+<input id="password" type="password" placeholder="Password">
+<button onclick="signup()">Create Account</button>
 
 </div><div class="card">
 <h2>Premium Presets</h2><div class="product">
@@ -75,5 +76,42 @@ font-weight:bold;
 <h3>Beat Edit Preset</h3>
 <div class="price">₹139</div>
 <button>Buy Now</button>
-</div></div></body>
+</div></div><script>
+const API_URL="https://script.google.com/macros/s/AKfycbxKziF3v-Ya3jgNnTkx1hpOMXTSBWFGFmSsVZJkp872D220EiGlgbh5xPORqb2gyEUBjQ/exec";
+
+async function signup(){
+
+let username=document.getElementById("username").value;
+let whatsapp=document.getElementById("whatsapp").value;
+let password=document.getElementById("password").value;
+
+if(!username || !whatsapp || !password){
+alert("সব তথ্য পূরণ করুন");
+return;
+}
+
+try{
+
+let response=await fetch(API_URL,{
+method:"POST",
+body:JSON.stringify({
+action:"signup",
+username:username,
+whatsapp:whatsapp,
+password:password
+})
+});
+
+let data=await response.json();
+
+alert(data.message);
+
+}catch(error){
+
+alert("Signup Failed");
+
+}
+
+}
+</script></body>
 </html>
