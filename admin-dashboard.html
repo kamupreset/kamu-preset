@@ -1,1 +1,154 @@
-<h1>Admin Dashboard</h1>
+<!DOCTYPE html><html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KAMU ADMIN DASHBOARD</title><style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:#0b0b15;
+color:white;
+padding:15px;
+}
+
+.logo{
+text-align:center;
+font-size:30px;
+font-weight:bold;
+margin:20px 0;
+background:linear-gradient(90deg,#ff4fd8,#b85cf6);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:10px;
+}
+
+.box{
+background:#1b1b2f;
+padding:20px;
+border-radius:20px;
+text-align:center;
+}
+
+.num{
+font-size:24px;
+font-weight:bold;
+color:#00ff99;
+}
+
+.card{
+background:#1b1b2f;
+padding:20px;
+border-radius:20px;
+margin-top:15px;
+}
+
+.title{
+font-size:20px;
+font-weight:bold;
+margin-bottom:15px;
+}
+
+input,select{
+width:100%;
+padding:14px;
+margin-top:10px;
+border:none;
+border-radius:12px;
+background:#111827;
+color:white;
+}
+
+button{
+width:100%;
+padding:14px;
+margin-top:12px;
+border:none;
+border-radius:12px;
+background:linear-gradient(90deg,#ff4fd8,#b85cf6);
+color:white;
+font-weight:bold;
+}
+
+.approve{
+background:#00c853;
+}
+
+.reject{
+background:#ff3d57;
+}
+
+.logout{
+background:#ff3d57;
+}
+
+.order{
+background:#111827;
+padding:15px;
+border-radius:15px;
+margin-top:10px;
+}
+
+</style></head><body><div class="logo">
+👑 KAMU ADMIN PANEL
+</div><div class="grid"><div class="box">
+<div class="num">125</div>
+Users
+</div><div class="box">
+<div class="num">48</div>
+Orders
+</div><div class="box">
+<div class="num">₹8950</div>
+Sales
+</div><div class="box">
+<div class="num">12</div>
+Pending
+</div></div><div class="card"><div class="title">
+💳 Payment Requests
+</div><div class="order">👤 Username: Indrajit
+
+<br><br>
+
+🎬 Love Song Preset
+
+<br><br>
+
+💰 ₹99
+
+<br><br>
+
+🔢 UTR: 123456789
+
+<button class="approve">
+APPROVE
+</button><button class="reject">
+REJECT
+</button></div></div><div class="card"><div class="title">
+➕ Add New Preset
+</div><input placeholder="Preset Name"><select>
+<option>Photo Preset</option>
+<option>Video Preset</option>
+<option>VIP Preset</option>
+</select><input placeholder="Price"><input placeholder="Thumbnail Link"><input placeholder="Preview Video Link"><input placeholder="Drive Link"><button>
+SAVE PRESET
+</button></div><div class="card"><div class="title">
+⚙️ Settings
+</div><input value="6294778013-2@ybl"><input value="6294778013"><button>
+UPDATE SETTINGS
+</button><button class="logout"
+onclick="location.href='admin.html'">
+LOGOUT
+</button>
+
+</div></body>
+</html>
