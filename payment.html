@@ -1,1 +1,119 @@
-<h1>Peyment Page</h1>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Payment</title>
+
+<style>
+body{
+background:#0f0f1a;
+font-family:Arial;
+color:white;
+margin:0;
+padding:20px;
+text-align:center;
+}
+
+.box{
+background:#1b1b2f;
+padding:20px;
+border-radius:20px;
+max-width:400px;
+margin:auto;
+}
+
+.qr{
+width:250px;
+height:250px;
+background:#fff;
+margin:20px auto;
+border-radius:15px;
+display:flex;
+align-items:center;
+justify-content:center;
+color:black;
+font-weight:bold;
+}
+
+input{
+width:100%;
+padding:15px;
+border:none;
+border-radius:10px;
+margin-top:15px;
+font-size:16px;
+}
+
+button{
+width:100%;
+padding:15px;
+margin-top:15px;
+background:#ff4fd8;
+border:none;
+border-radius:10px;
+color:white;
+font-size:18px;
+font-weight:bold;
+}
+
+.success{
+display:none;
+margin-top:20px;
+background:#00c853;
+padding:15px;
+border-radius:10px;
+}
+
+a{
+color:white;
+text-decoration:none;
+font-weight:bold;
+}
+</style>
+</head>
+
+<body>
+
+<div class="box">
+
+<h2>💳 Payment Verification</h2>
+
+<div class="qr">
+UPLOAD YOUR QR
+</div>
+
+<input type="text" id="utr" placeholder="Enter UTR Number">
+
+<button onclick="verifyPayment()">
+VERIFY PAYMENT
+</button>
+
+<div class="success" id="successBox">
+✅ Payment Verified
+
+<br><br>
+
+<a href="https://drive.google.com/" target="_blank">
+📥 DOWNLOAD PRESET
+</a>
+
+</div>
+
+</div>
+
+<script>
+function verifyPayment(){
+let utr=document.getElementById("utr").value;
+
+if(utr.length>=8){
+document.getElementById("successBox").style.display="block";
+}
+else{
+alert("Enter Valid UTR Number");
+}
+}
+</script>
+
+</body>
+</html>
