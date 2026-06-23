@@ -1,117 +1,171 @@
-<!DOCTYPE html><html>
+<!DOCTYPE html>
+<html>
 <head>
-<title>KAMU PRESET</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"><style>
-body{
-background:#0f172a;
-color:white;
-font-family:Arial;
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KAMU PRESET Login</title>
+
+<style>
+
+*{
 margin:0;
 padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
 }
 
-header{
-background:#111827;
+body{
+background:#080812;
+display:flex;
+justify-content:center;
+align-items:center;
+min-height:100vh;
 padding:20px;
-text-align:center;
-font-size:30px;
-font-weight:bold;
+overflow:hidden;
+}
+
+.glow1{
+position:absolute;
+width:250px;
+height:250px;
+background:#ff4fd8;
+filter:blur(120px);
+top:-50px;
+left:-50px;
+opacity:.4;
+}
+
+.glow2{
+position:absolute;
+width:250px;
+height:250px;
+background:#8b5cf6;
+filter:blur(120px);
+bottom:-50px;
+right:-50px;
+opacity:.4;
 }
 
 .card{
-background:#1e293b;
-margin:15px;
-padding:20px;
+width:100%;
+max-width:400px;
+background:rgba(27,27,47,.95);
+padding:30px;
+border-radius:30px;
+box-shadow:0 0 30px rgba(255,79,216,.25);
+position:relative;
+z-index:1;
+}
+
+.logo{
+font-size:60px;
+text-align:center;
+margin-bottom:10px;
+}
+
+.title{
+font-size:34px;
+font-weight:bold;
+text-align:center;
+background:linear-gradient(90deg,#ff4fd8,#b85cf6);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+margin-bottom:10px;
+}
+
+.subtitle{
+text-align:center;
+color:#aaa;
+margin-bottom:25px;
+}
+
+.input{
+width:100%;
+padding:16px;
+margin-bottom:15px;
+background:#111827;
+border:none;
 border-radius:15px;
-}
-
-input{
-width:100%;
-padding:12px;
-margin-top:10px;
-border:none;
-border-radius:10px;
-box-sizing:border-box;
-}
-
-button{
-width:100%;
-padding:12px;
-margin-top:10px;
-background:#06b6d4;
 color:white;
-border:none;
-border-radius:10px;
 font-size:16px;
 }
 
-.product{
-background:#111827;
-padding:15px;
-margin-top:10px;
-border-radius:10px;
-}
-
-.price{
-color:#22c55e;
-font-size:20px;
+.btn{
+width:100%;
+padding:16px;
+border:none;
+border-radius:15px;
+font-size:18px;
 font-weight:bold;
-}
-</style></head><body><header>KAMU PRESET</header><div class="card">
-<h2>Create Account</h2><input id="username" placeholder="Username">
-<input id="whatsapp" placeholder="WhatsApp Number">
-<input id="password" type="password" placeholder="Password">
-<button onclick="signup()">Create Account</button>
-
-</div><div class="card">
-<h2>Premium Presets</h2><div class="product">
-<h3>Shake Preset</h3>
-<div class="price">₹79</div>
-<button>Buy Now</button>
-</div><div class="product">
-<h3>Naruto Preset</h3>
-<div class="price">₹99</div>
-<button>Buy Now</button>
-</div><div class="product">
-<h3>Beat Edit Preset</h3>
-<div class="price">₹139</div>
-<button>Buy Now</button>
-</div></div><script>
-const API_URL="https://script.google.com/macros/s/AKfycbxKziF3v-Ya3jgNnTkx1hpOMXTSBWFGFmSsVZJkp872D220EiGlgbh5xPORqb2gyEUBjQ/exec";
-
-async function signup(){
-
-let username=document.getElementById("username").value;
-let whatsapp=document.getElementById("whatsapp").value;
-let password=document.getElementById("password").value;
-
-if(!username || !whatsapp || !password){
-alert("সব তথ্য পূরণ করুন");
-return;
+cursor:pointer;
+margin-top:10px;
 }
 
-try{
-
-let response=await fetch(API_URL,{
-method:"POST",
-body:JSON.stringify({
-action:"signup",
-username:username,
-whatsapp:whatsapp,
-password:password
-})
-});
-
-let data=await response.json();
-
-alert(data.message);
-window.location.href="dashboard.html";
-}catch(error){
-
-alert("Signup Failed");
-
+.login{
+background:linear-gradient(90deg,#ff4fd8,#b85cf6);
+color:white;
 }
 
+.signup{
+background:#00c853;
+color:white;
 }
-</script></body>
+
+.info{
+margin-top:25px;
+text-align:center;
+color:#bbb;
+font-size:14px;
+line-height:28px;
+}
+
+a{
+text-decoration:none;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="glow1"></div>
+<div class="glow2"></div>
+
+<div class="card">
+
+<div class="logo">👑</div>
+
+<div class="title">
+KAMU PRESET
+</div>
+
+<div class="subtitle">
+Premium Preset Marketplace
+</div>
+
+<input type="text" class="input" placeholder="Username">
+
+<input type="password" class="input" placeholder="Password">
+
+<a href="home.html">
+<button class="btn login">
+🔐 LOGIN
+</button>
+</a>
+
+<a href="home.html">
+<button class="btn signup">
+✨ CREATE ACCOUNT
+</button>
+</a>
+
+<div class="info">
+💎 Premium Presets<br>
+🎬 Photo & Video Presets<br>
+🔒 Secure Login
+</div>
+
+</div>
+
+</body>
 </html>
